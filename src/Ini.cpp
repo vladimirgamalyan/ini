@@ -1,7 +1,7 @@
 #include "Ini.h"
-#include "utils/string_trim.h"
-#include "utils/string_to_number.h"
-#include "utils/string_split.h"
+#include "utils/string/string_trim.h"
+#include "utils/string/string_to_number.h"
+#include "utils/string/string_split.h"
 
 void Ini::parse(std::istream& is)
 {

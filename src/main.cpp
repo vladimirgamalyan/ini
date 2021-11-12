@@ -1,7 +1,7 @@
 #include "Ini.h"
 #include <fstream>
 #include <iostream>
-#include "utils/string_to_number.h"
+#include "utils/string/string_to_number.h"
 
 #define DOCTEST_CONFIG_IMPLEMENT
 #include "external/doctest.h"

@@ -145,16 +145,16 @@
   <ItemGroup>
     <ClCompile Include="src\Ini.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\utils\string_to_number.cpp" />
-    <ClCompile Include="src\utils\string_split.cpp" />
-    <ClCompile Include="src\utils\string_trim.cpp" />
+    <ClCompile Include="src\utils\string\string_to_number.cpp" />
+    <ClCompile Include="src\utils\string\string_split.cpp" />
+    <ClCompile Include="src\utils\string\string_trim.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\external\doctest.h" />
     <ClInclude Include="src\Ini.h" />
-    <ClInclude Include="src\utils\string_split.h" />
-    <ClInclude Include="src\utils\string_to_number.h" />
-    <ClInclude Include="src\utils\string_trim.h" />
+    <ClInclude Include="src\utils\string\string_split.h" />
+    <ClInclude Include="src\utils\string\string_to_number.h" />
+    <ClInclude Include="src\utils\string\string_trim.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="test\test.ini" />
