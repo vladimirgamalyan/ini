@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-inline std::vector<std::string> splitStr(const std::string& s, const std::string& delimiters, bool skipEmpty)
+inline std::vector<std::string> string_split(const std::string& s, const std::string& delimiters, bool skipEmpty = true)
 {
 	std::vector<std::string> result;
 	size_t last = 0;

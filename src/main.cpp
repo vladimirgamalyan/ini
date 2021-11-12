@@ -2,7 +2,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT
 #include "doctest.h"
 #include "IniEx.h"
-#include "string_converter.h"
+#include "string_to_number.h"
 #include <fstream>
 
 int main(int argc, char* argv[])

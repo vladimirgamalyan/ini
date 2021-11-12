@@ -1,8 +1,8 @@
 #pragma once
 #include "Ini.h"
-#include "string_converter.h"
-#include "string_splitter.h"
-#include "string_trimmer.h"
+#include "string_to_number.h"
+#include "string_split.h"
+#include "string_trim.h"
 #include <vector>
 
 class IniEx : public Ini
@@ -40,12 +40,12 @@ public:
 		if (!v)
 			return {};
 		
-		auto a = splitStr(v.value(), ",",  true);
+		auto a = string_split(v.value(), ",",  true);
 
 		std::vector<int> result;
 		for (std::string s : a)
 		{
-			auto t = string_to_number<int>(std::string(trim<char>(s)));
+			auto t = string_to_number<int>(std::string(string_trim<char>(s)));
 			if (t)
 				result.push_back(t.value());
 		}

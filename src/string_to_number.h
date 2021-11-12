@@ -11,7 +11,7 @@ inline std::optional<T> string_to_number(const std::string_view& s)
 		|| std::is_same<T, float>::value || std::is_same<T, int>::value);
 	T result{};
 	auto [ptr, ec] { std::from_chars(s.data(), s.data() + s.size(), result) };
-	if (ec != std::errc() || ptr != s.data() + s.size())
+	if (ec != std::errc{} || ptr != s.data() + s.size())
 		return {};
 	return result;
 }

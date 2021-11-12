@@ -3,7 +3,7 @@
 #include <string>
 #include <map>
 #include <optional>
-#include "string_trimmer.h"
+#include "string_trim.h"
 
 class Ini
 {
@@ -18,7 +18,7 @@ public:
 		std::string line;
 		while (std::getline(is, line))
 		{
-			auto stripped_line = trim<char>(line);
+			auto stripped_line = string_trim<char>(line);
 
 			if (stripped_line.empty() || stripped_line.front() == ';')
 				continue;
@@ -36,8 +36,8 @@ public:
 				if (p == 0 || p == std::string::npos)
 					throw std::exception();
 
-				auto key = trim_right(stripped_line.substr(0, p));
-				auto value = trim_left(stripped_line.substr(p + 1));
+				auto key = string_trim_right(stripped_line.substr(0, p));
+				auto value = string_trim_left(stripped_line.substr(p + 1));
 
 				sections[curSection][std::string(key)] = value;
 			}
