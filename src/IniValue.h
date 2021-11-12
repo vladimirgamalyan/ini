@@ -2,35 +2,28 @@
 #include <string>
 #include <stdexcept>
 
-//TODO: memorize all computations (on first request)
 class IniValue
 {
 public:
 	explicit IniValue(const std::string& str) : s(str) {}
 
+	// all methods ignore leading whitespaces (as identified by calling std::isspace)
+
 	bool isInt() const
 	{
 		char* end;
 		errno = 0;
-		long l = strtol(s.c_str(), &end, 10);
-		return !(errno != 0 || l > INT_MAX || l < INT_MIN || s.empty() || *end != '\0');
+		const long l = strtol(s.c_str(), &end, 10);
+		return !(errno != 0 || s.empty() || *end != '\0' || l > INT_MAX || l < INT_MIN);
 	}
 
 	int asInt() const
 	{
 		char* end;
 		errno = 0;
-		long l = strtol(s.c_str(), &end, 10);
-		if (errno)
-		{
-			if (errno == ERANGE || l > INT_MAX || l < INT_MIN)
-				throw std::out_of_range("IniValue::asInt: out of range");
-			throw std::invalid_argument("IniValue::asInt: other error");
-		}
-
-		if (s.empty() || *end != '\0')
-			throw std::invalid_argument("IniValue::asInt: invalid string");
-
+		const long l = strtol(s.c_str(), &end, 10);
+		if (errno != 0 || s.empty() || *end != '\0' || l > INT_MAX || l < INT_MIN)
+			throw std::exception();
 		return static_cast<int>(l);
 	}
 
@@ -46,17 +39,9 @@ public:
 	{
 		char* end;
 		errno = 0;
-		double f = strtod(s.c_str(), &end);
-		if (errno)
-		{
-			if (f == HUGE_VAL || f == -HUGE_VAL)
-				throw std::out_of_range("IniValue::asDouble: out of range");
-			throw std::invalid_argument("IniValue::asDouble: underflow or other error");
-		}
-
-		if (s.empty() || *end != '\0')
-			throw std::invalid_argument("IniValue::asDouble: invalid string");
-
+		const double f = strtod(s.c_str(), &end);
+		if (errno != 0 || s.empty() || *end != '\0')
+			throw std::exception();
 		return f;
 	}
 
@@ -72,17 +57,9 @@ public:
 	{
 		char* end;
 		errno = 0;
-		float f = strtof(s.c_str(), &end);
-		if (errno)
-		{
-			if (f == HUGE_VALF || f == -HUGE_VALF)
-				throw std::out_of_range("IniValue::asFloat: out of range");
-			throw std::invalid_argument("IniValue::asFloat: underflow or other error");
-		}
-
-		if (s.empty() || *end != '\0')
-			throw std::invalid_argument("IniValue::asFloat: invalid string");
-
+		const float f = strtof(s.c_str(), &end);
+		if (errno != 0 || s.empty() || *end != '\0')
+			throw std::exception();
 		return f;
 	}
 

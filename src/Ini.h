@@ -1,5 +1,4 @@
 #pragma once
-#include <istream>
 #include <iostream>
 #include <string>
 #include <map>
@@ -19,7 +18,8 @@ public:
 		std::string line;
 		while (std::getline(is, line))
 		{
-			auto stripped_line = trim<char>(line);
+			//auto stripped_line = trim<char>(line);
+			auto stripped_line = line;
 
 			if (stripped_line.empty() || stripped_line.front() == ';')
 				continue;
@@ -45,13 +45,13 @@ public:
 		}
 	}
 
-	void dump() const
+	void dump(std::ostream& os) const
 	{
 		for (auto const& [name, section] : sections)
 		{
-			std::cout << "[" << name << "]\n";
+			os << "[" << name << "]\n";
 			for (auto const& [key, value] : section)
-				std::cout << key << "=" << value << "\n";
+				os << key << "=" << value << "\n";
 		}
 	}
 
