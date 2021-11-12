@@ -1,9 +1,10 @@
-#include <iostream>
-#define DOCTEST_CONFIG_IMPLEMENT
-#include "external/doctest.h"
 #include "Ini.h"
 #include <fstream>
+#include <iostream>
 #include "utils/string_to_number.h"
+
+#define DOCTEST_CONFIG_IMPLEMENT
+#include "external/doctest.h"
 
 int main(int argc, char* argv[])
 {
