@@ -1,9 +1,8 @@
 #pragma once
 #include "Ini.h"
-#include "string_to_number.h"
-#include "string_split.h"
-#include "string_trim.h"
 #include <vector>
+#include "utils/string_to_number.h"
+#include "utils/string_split.h"
 
 class IniEx : public Ini
 {

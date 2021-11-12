@@ -3,7 +3,7 @@
 #include <string>
 #include <map>
 #include <optional>
-#include "string_trim.h"
+#include "utils/string_trim.h"
 
 class Ini
 {

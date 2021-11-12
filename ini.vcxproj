@@ -89,6 +89,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>./src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -104,6 +105,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>./src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -144,17 +146,17 @@
     <ClCompile Include="src\Ini.cpp" />
     <ClCompile Include="src\IniEx.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\string_to_number.cpp" />
-    <ClCompile Include="src\string_split.cpp" />
-    <ClCompile Include="src\string_trim.cpp" />
+    <ClCompile Include="src\utils\string_to_number.cpp" />
+    <ClCompile Include="src\utils\string_split.cpp" />
+    <ClCompile Include="src\utils\string_trim.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\doctest.h" />
     <ClInclude Include="src\Ini.h" />
     <ClInclude Include="src\IniEx.h" />
-    <ClInclude Include="src\string_split.h" />
-    <ClInclude Include="src\string_to_number.h" />
-    <ClInclude Include="src\string_trim.h" />
+    <ClInclude Include="src\utils\string_split.h" />
+    <ClInclude Include="src\utils\string_to_number.h" />
+    <ClInclude Include="src\utils\string_trim.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="test\test.ini" />
