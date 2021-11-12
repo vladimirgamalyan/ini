@@ -38,10 +38,15 @@ void Ini::parse(std::istream& is)
 	}
 }
 
+void Ini::parse(const char* data, size_t size)
+{
+	imemstream ms(data, size);
+	parse(ms);
+}
+
 void Ini::parse(const std::string_view& s)
 {
-	imemstream ms(reinterpret_cast<const char*>(s.data()), s.size());
-	parse(ms);
+	parse(s.data(), s.size());
 }
 
 void Ini::dump(std::ostream& os) const
