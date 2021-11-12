@@ -1,8 +1,9 @@
 #include <iostream>
 #define DOCTEST_CONFIG_IMPLEMENT
 #include "external/doctest.h"
-#include "IniEx.h"
+#include "Ini.h"
 #include <fstream>
+#include "utils/string_to_number.h"
 
 int main(int argc, char* argv[])
 {
@@ -16,7 +17,7 @@ int main(int argc, char* argv[])
 
     {
         std::fstream fs("test/test.ini");
-        IniEx ini;
+        Ini ini;
         ini.parse(fs);
         ini.dump(std::cout);
 
