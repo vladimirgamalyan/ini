@@ -151,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\external\doctest.h" />
+    <ClInclude Include="src\imemstream.h" />
     <ClInclude Include="src\Ini.h" />
     <ClInclude Include="src\utils\string\string_split.h" />
     <ClInclude Include="src\utils\string\string_to_number.h" />

@@ -2,6 +2,7 @@
 #include "utils/string/string_trim.h"
 #include "utils/string/string_to_number.h"
 #include "utils/string/string_split.h"
+#include "imemstream.h"
 
 void Ini::parse(std::istream& is)
 {
@@ -35,6 +36,12 @@ void Ini::parse(std::istream& is)
 			sections[curSection][std::string(key)] = value;
 		}
 	}
+}
+
+void Ini::parse(const std::string_view& s)
+{
+	imemstream ms(reinterpret_cast<const char*>(s.data()), s.size());
+	parse(ms);
 }
 
 void Ini::dump(std::ostream& os) const

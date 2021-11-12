@@ -43,5 +43,12 @@ int main(int argc, char* argv[])
         std::cout << "\n";
     }
 
+    {
+        const std::string s{ "[foo]\nbar=42" };
+        Ini ini;
+        ini.parse(s);
+        std::cout << "parse from string: " << ini.getInt("foo", "bar", 0) << "\n";
+    }
+
     return 0;
 }

@@ -11,6 +11,7 @@ public:
 	using Section = std::map<std::string, std::string>;
 
 	void parse(std::istream& is);
+	void parse(const std::string_view& s);
 	void dump(std::ostream& os) const;
 	const Section* getSection(const std::string& section) const;
 	std::optional<std::string> getValue(const std::string& section, const std::string& key) const;
