@@ -1,5 +1,5 @@
 #include "string_trim.h"
-#include "doctest.h"
+#include "external/doctest.h"
 #include <string>
 
 static void test_string_trim_left(const std::string& src, const std::string& expexted)

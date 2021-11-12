@@ -1,6 +1,6 @@
 #include <iostream>
 #define DOCTEST_CONFIG_IMPLEMENT
-#include "doctest.h"
+#include "external/doctest.h"
 #include "IniEx.h"
 #include <fstream>
 

@@ -1,5 +1,5 @@
 #include "string_to_number.h"
-#include "doctest.h"
+#include "external/doctest.h"
 
 TEST_CASE("string_to_number")
 {

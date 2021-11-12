@@ -1,5 +1,5 @@
 #include "string_split.h"
-#include "doctest.h"
+#include "external/doctest.h"
 
 TEST_CASE("string_split")
 {
