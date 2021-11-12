@@ -142,12 +142,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Ini.cpp" />
+    <ClCompile Include="src\IniValue.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\string_trimmer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\doctest.h" />
     <ClInclude Include="src\Ini.h" />
+    <ClInclude Include="src\IniValue.h" />
     <ClInclude Include="src\string_trimmer.h" />
   </ItemGroup>
   <ItemGroup>
