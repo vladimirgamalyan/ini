@@ -1,6 +1,8 @@
 #include <iostream>
 #define DOCTEST_CONFIG_IMPLEMENT
 #include "doctest.h"
+#include "Ini.h"
+#include <fstream>
 
 int main(int argc, char* argv[])
 {
@@ -12,10 +14,12 @@ int main(int argc, char* argv[])
             return res;
     }
 
-    return 0;
-}
+    {
+        std::fstream fs("test/test.ini");
+        Ini ini;
+        ini.parse(fs);
+        ini.dump();
+    }
 
-TEST_CASE("foo test")
-{
-    CHECK(2 * 2 == 4);
+    return 0;
 }
