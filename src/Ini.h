@@ -18,8 +18,7 @@ public:
 		std::string line;
 		while (std::getline(is, line))
 		{
-			//auto stripped_line = trim<char>(line);
-			auto stripped_line = line;
+			auto stripped_line = trim<char>(line);
 
 			if (stripped_line.empty() || stripped_line.front() == ';')
 				continue;
@@ -37,8 +36,8 @@ public:
 				if (p == 0 || p == std::string::npos)
 					throw std::exception();
 
-				auto key = stripped_line.substr(0, p);
-				auto value = stripped_line.substr(p + 1);
+				auto key = trim_right(stripped_line.substr(0, p));
+				auto value = trim_left(stripped_line.substr(p + 1));
 
 				sections[curSection][std::string(key)] = value;
 			}

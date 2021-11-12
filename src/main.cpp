@@ -1,8 +1,8 @@
 #include <iostream>
 #define DOCTEST_CONFIG_IMPLEMENT
 #include "doctest.h"
-#include "Ini.h"
-#include "IniValue.h"
+#include "IniEx.h"
+#include "string_converter.h"
 #include <fstream>
 
 int main(int argc, char* argv[])
@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
 
     {
         std::fstream fs("test/test.ini");
-        Ini ini;
+        IniEx ini;
         ini.parse(fs);
         ini.dump(std::cout);
 
@@ -32,7 +32,14 @@ int main(int argc, char* argv[])
         auto foo = ini.getValue("section1", "foo2");
         std::cout << "foo: " << foo.value_or("7") << "\n";
 
-        std::cout << "b: " << IniValue(ini.getValue("section2", "b").value_or("777")).asInt() << "\n";
+        std::cout << "b: " << string_to_number<int>(ini.getValue("section2", "b").value_or("777")).value_or(-1) << "\n";
+
+        std::cout << ini.getInt("section2", "b", 23) << "\n";
+
+        auto a = ini.getIntArray("parcel", "many");
+        for (const auto n : a)
+            std::cout << n << " ";
+        std::cout << "\n";
     }
 
     return 0;
