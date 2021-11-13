@@ -1,2 +1,2 @@
 # ini
-Simple C++ ini reader
+Simple C++ ini reader, yeap, another one =)
