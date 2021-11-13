@@ -91,7 +91,13 @@ int Ini::getInt(const std::string& section, const std::string& key, int defaultV
 
 std::string Ini::getStr(const std::string& section, const std::string& key, const std::string& defaultValue /*= ""*/) const
 {
-	return getValue(section, key).value_or(defaultValue);
+	std::string result = getValue(section, key).value_or(defaultValue);
+	if (result.size() >= 2 && result.front() == '\"' && result.back() == '\"')
+	{
+		result.erase(result.end() - 1);
+		result.erase(result.begin());
+	}
+	return result;
 }
 
 bool Ini::getBool(const std::string& section, const std::string& key, bool defaultValue) const
