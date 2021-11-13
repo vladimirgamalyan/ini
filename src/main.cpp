@@ -19,8 +19,8 @@ int main(int argc, char* argv[])
 
     {
         std::fstream fs("test/test.ini");
-        Ini ini;
-        ini.parse(fs);
+        Ini ini(fs);
+        //ini.parse(fs);
         ini.dump(std::cout);
 
         auto p = ini.getSection("foo");

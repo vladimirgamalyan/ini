@@ -4,6 +4,21 @@
 #include "utils/string/string_split.h"
 #include "imemstream.h"
 
+Ini::Ini(std::istream& is)
+{
+	parse(is);
+}
+
+Ini::Ini(const char* data, size_t size)
+{
+	parse(data, size);
+}
+
+Ini::Ini(const std::string_view& s)
+{
+	parse(s);
+}
+
 void Ini::parse(std::istream& is)
 {
 	sections.clear();

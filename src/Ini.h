@@ -10,6 +10,10 @@ class Ini
 public:
 	using Section = std::map<std::string, std::string>;
 
+	Ini() {}
+	Ini(std::istream& is);
+	Ini(const char* data, size_t size);
+	Ini(const std::string_view& s);
 	void parse(std::istream& is);
 	void parse(const char* data, size_t size);
 	void parse(const std::string_view& s);
