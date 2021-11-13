@@ -19,7 +19,6 @@ public:
 	int getInt(const std::string& section, const std::string& key, int defaultValue) const;
 	std::string getStr(const std::string& section, const std::string& key, const std::string& defaultValue = "") const;
 	bool getBool(const std::string& section, const std::string& key, bool defaultValue) const;
-	std::vector<int> getIntArray(const std::string& section, const std::string& key) const;
 
 private:
 	std::map<std::string, Section> sections;

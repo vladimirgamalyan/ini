@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include "utils/string/string_to_number.h"
+#include "utils/string/string_split_to_numbers.h"
 
 #define DOCTEST_CONFIG_IMPLEMENT
 #include "external/doctest.h"
@@ -37,9 +38,10 @@ int main(int argc, char* argv[])
 
         std::cout << ini.getInt("section2", "b", 23) << "\n";
 
-        auto a = ini.getIntArray("parcel", "many");
-        for (const auto n : a)
-            std::cout << n << " ";
+        auto a = ini.getValue("parcel", "many");
+        if (a)
+            for (const auto n : string_split_to_numbers(*a))
+                std::cout << n << " ";
         std::cout << "\n";
     }
 

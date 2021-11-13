@@ -112,22 +112,3 @@ bool Ini::getBool(const std::string& section, const std::string& key, bool defau
 
 	return defaultValue;
 }
-
-std::vector<int> Ini::getIntArray(const std::string& section, const std::string& key) const
-{
-	auto v = getValue(section, key);
-	if (!v)
-		return {};
-
-	auto a = string_split(v.value(), ",", true);
-
-	std::vector<int> result;
-	for (std::string s : a)
-	{
-		auto t = string_to_number<int>(std::string(string_trim<char>(s)));
-		if (t)
-			result.push_back(t.value());
-	}
-
-	return result;
-}

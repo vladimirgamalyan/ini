@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClCompile Include="src\Ini.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\utils\string\string_split_to_numbers.cpp" />
     <ClCompile Include="src\utils\string\string_to_number.cpp" />
     <ClCompile Include="src\utils\string\string_split.cpp" />
     <ClCompile Include="src\utils\string\string_trim.cpp" />
@@ -154,6 +155,7 @@
     <ClInclude Include="src\imemstream.h" />
     <ClInclude Include="src\Ini.h" />
     <ClInclude Include="src\utils\string\string_split.h" />
+    <ClInclude Include="src\utils\string\string_split_to_numbers.h" />
     <ClInclude Include="src\utils\string\string_to_number.h" />
     <ClInclude Include="src\utils\string\string_trim.h" />
   </ItemGroup>
