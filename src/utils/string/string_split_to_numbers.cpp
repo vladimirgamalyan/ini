@@ -8,9 +8,9 @@ std::vector<int> string_split_to_numbers(const std::string& s)
 	auto a = string_split(s, ",", true);
 
 	std::vector<int> result;
-	for (std::string s : a)
+	for (std::string i : a)
 	{
-		auto t = string_to_number<int>(string_trim<char>(s));
+		auto t = string_to_number<int>(string_trim<char>(i));
 		if (t)
 			result.push_back(t.value());
 	}
