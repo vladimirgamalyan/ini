@@ -3,7 +3,7 @@
 #include "string_to_number.h"
 #include "string_trim.h"
 
-std::vector<int> string_split_to_numbers(const std::string& s)
+std::vector<int> string_split_to_numbers(const std::string_view& s)
 {
 	auto a = string_split(s, ",", true);
 
