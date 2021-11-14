@@ -6,10 +6,10 @@
 #include "string_trim.h"
 
 template<class T>
-std::vector<T> string_split_to_numbers(const std::string_view& s)
+std::vector<T> string_split_to_numbers(const std::string_view& s, const std::string_view delimiters = ",")
 {
 	std::vector<T> result;
-	for (std::string i : string_split(s, ",", true))
+	for (std::string i : string_split(s, delimiters, true))
 		if (auto t = string_to_number<T>(string_trim<char>(i)))
 			result.push_back(t.value());
 	return result;
