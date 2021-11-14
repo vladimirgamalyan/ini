@@ -17,6 +17,7 @@ public:
 	void parse(std::istream& is);
 	void parse(const char* data, size_t size);
 	void parse(const std::string_view& s);
+	void load(const std::string& path);
 	void dump(std::ostream& os) const;
 	const Section* getSection(const std::string& section) const;
 	std::optional<std::string> getValue(const std::string& section, const std::string& key) const;

@@ -2,6 +2,8 @@
 #include "external/doctest.h"
 #include <string>
 
+#ifndef DOCTEST_CONFIG_DISABLE
+
 static void test_string_trim_left(const std::string& src, const std::string& expexted)
 {
     REQUIRE(std::string(string_trim_left<char>(src)) == expexted);
@@ -54,3 +56,5 @@ TEST_CASE("test_string_trim")
     test_string_trim(" foo ", "foo");
     test_string_trim(" f oo ", "f oo");
 }
+
+#endif

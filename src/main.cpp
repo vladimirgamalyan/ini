@@ -38,9 +38,8 @@ int main(int argc, char* argv[])
 
         std::cout << ini.getInt("section2", "b", 23) << "\n";
 
-        auto a = ini.getValue("parcel", "many");
-        if (a)
-            for (const auto n : string_split_to_numbers(*a))
+        if (auto a = ini.getValue("parcel", "many"))
+            for (const auto n : string_split_to_numbers<int>(*a))
                 std::cout << n << " ";
         std::cout << "\n";
     }

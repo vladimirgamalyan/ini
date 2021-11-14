@@ -2,6 +2,7 @@
 #include "utils/string/string_trim.h"
 #include "utils/string/string_to_number.h"
 #include "imemstream.h"
+#include <fstream>
 
 Ini::Ini(std::istream& is)
 {
@@ -61,6 +62,12 @@ void Ini::parse(const char* data, size_t size)
 void Ini::parse(const std::string_view& s)
 {
 	parse(s.data(), s.size());
+}
+
+void Ini::load(const std::string& path)
+{
+	std::ifstream is(path);
+	parse(is);
 }
 
 void Ini::dump(std::ostream& os) const
